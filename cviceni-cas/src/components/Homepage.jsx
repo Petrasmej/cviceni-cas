@@ -9,11 +9,11 @@ const Homepage = () => {
   useEffect(() => {
     const fetchDate = async () => {
       const response = await fetch(
-        'https://worldtimeapi.org/api/timezone/Europe/Prague',
+        `https://worldtimeapi.org/api/timezone/${timezone}`,
       );
       const data = await response.json();
-
-      setDateTime(data.dateTime);
+      console.log(data);
+      setDateTime(data.datetime.slice(0, 16));
     };
 
     fetchDate();
